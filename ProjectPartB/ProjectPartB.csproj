@@ -1,0 +1,144 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{9815022A-AF7D-4216-B2AD-DF8154F04CA1}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>ProjectPartB</RootNamespace>
+    <AssemblyName>ProjectPartB</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ApplicationMenu.cs" />
+    <Compile Include="Controllers\AssignmentController.cs" />
+    <Compile Include="Controllers\Controller.cs" />
+    <Compile Include="Controllers\CourseController.cs" />
+    <Compile Include="Controllers\MixedEntitiesController.cs" />
+    <Compile Include="Controllers\StudentController.cs" />
+    <Compile Include="Controllers\TrainerController.cs" />
+    <Compile Include="Core\Entities\Assignment.cs" />
+    <Compile Include="Core\Entities\Course.cs" />
+    <Compile Include="Core\Entities\Student.cs" />
+    <Compile Include="Core\Entities\Trainer.cs" />
+    <Compile Include="Core\Enums\CourseType.cs" />
+    <Compile Include="Core\IEntities\IEntities.cs" />
+    <Compile Include="Core\IRepositories\IAssignmentRepository.cs" />
+    <Compile Include="Core\IRepositories\ICourseRepository.cs" />
+    <Compile Include="Core\IRepositories\IRepository.cs" />
+    <Compile Include="Core\IRepositories\IStudentRepository.cs" />
+    <Compile Include="Core\IRepositories\ITrainerRepository.cs" />
+    <Compile Include="Core\IUnitOfWork.cs" />
+    <Compile Include="HelperClasses\PairEntities\PairInputDate.cs" />
+    <Compile Include="HelperClasses\PairEntities\SeedPairEntity.cs" />
+    <Compile Include="HelperClasses\PrintTables\PrintEntityPerCourseTables\PrintCourseAssignmentTable.cs" />
+    <Compile Include="HelperClasses\PrintTables\PrintEntityPerCourseTables\PrintCourseStudentTable.cs" />
+    <Compile Include="HelperClasses\PrintTables\PrintEntityPerCourseTables\PrintCourseTrainerTable.cs" />
+    <Compile Include="HelperClasses\PrintTables\PrintEntityTables\PrintAssignmentTable.cs" />
+    <Compile Include="HelperClasses\PrintTables\PrintEntityTables\PrintCourseTable.cs" />
+    <Compile Include="HelperClasses\PrintTables\PrintEntityTables\PrintStudentTable.cs" />
+    <Compile Include="HelperClasses\PrintTables\PrintEntityTables\PrintTrainerTable.cs" />
+    <Compile Include="HelperClasses\PrintTables\PrintOtherCombinationTables\PrintStudentAssignmentTable.cs" />
+    <Compile Include="HelperClasses\PrintTables\PrintOtherCombinationTables\PrintStudentsToReturnAssignmentsTable.cs" />
+    <Compile Include="HelperClasses\PrintTables\PrintOtherCombinationTables\PrintStudentsWithMultiCoursesTable.cs" />
+    <Compile Include="Migrations\202201171305001_InitialMigration.cs" />
+    <Compile Include="Migrations\202201171305001_InitialMigration.designer.cs">
+      <DependentUpon>202201171305001_InitialMigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Persistence\Initializers\MySchoolContextInitializer.cs" />
+    <Compile Include="Persistence\MySchoolContext.cs" />
+    <Compile Include="Persistence\Repositories\AssignmentRepository.cs" />
+    <Compile Include="Persistence\Repositories\CourseRepository.cs" />
+    <Compile Include="Persistence\Repositories\Repository.cs" />
+    <Compile Include="Persistence\Repositories\StudentRepository.cs" />
+    <Compile Include="Persistence\Repositories\TrainerRepository.cs" />
+    <Compile Include="Persistence\UnitOfWork.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Validations\Validation.cs" />
+    <Compile Include="Views\ViewCreateEntities\ViewCreateAssignments.cs" />
+    <Compile Include="Views\ViewCreateEntities\ViewCreateCourse.cs" />
+    <Compile Include="Views\ViewCreateEntities\ViewCreateStudent.cs" />
+    <Compile Include="Views\ViewCreateEntities\ViewCreateTrainer.cs" />
+    <Compile Include="Views\ViewDeleteEntities\ViewDeleteAssignment.cs" />
+    <Compile Include="Views\ViewDeleteEntities\ViewDeleteCourse.cs" />
+    <Compile Include="Views\ViewDeleteEntities\ViewDeleteStudent.cs" />
+    <Compile Include="Views\ViewDeleteEntities\ViewDeleteTrainer.cs" />
+    <Compile Include="Views\ViewMenus\ViewCreateMenu.cs" />
+    <Compile Include="Views\ViewMenus\ViewDeleteMenu.cs" />
+    <Compile Include="Views\ViewMenus\ViewInsideMenu.cs" />
+    <Compile Include="Views\ViewMenus\ViewMainMenu.cs" />
+    <Compile Include="Views\ViewMenus\ViewUpdateMenu.cs" />
+    <Compile Include="Views\ViewPairEntities\ViewPairCourseAssignment.cs" />
+    <Compile Include="Views\ViewPairEntities\ViewPairCourseStudent.cs" />
+    <Compile Include="Views\ViewPairEntities\ViewPairCourseTrainer.cs" />
+    <Compile Include="Views\ViewTables.cs" />
+    <Compile Include="Views\ViewUpdateEntities\ViewUpdateAssignment.cs" />
+    <Compile Include="Views\ViewUpdateEntities\ViewUpdateCourse.cs" />
+    <Compile Include="Views\ViewUpdateEntities\ViewUpdateStudent.cs" />
+    <Compile Include="Views\ViewUpdateEntities\ViewUpdateTrainer.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202201171305001_InitialMigration.resx">
+      <DependentUpon>202201171305001_InitialMigration.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+</Project>
